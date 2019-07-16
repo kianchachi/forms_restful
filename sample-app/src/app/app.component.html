@@ -1,0 +1,41 @@
+<form (submit)="onSubmit()" >
+      <p> {{ newTask | json }} </p>
+
+      <!-- <label >Task title:</label> -->
+        <input type="text" name="newTask.title" [(ngModel)]="newTask.title" />
+      
+      <!-- <label >Task Description:</label> -->
+        <input type="text" name="newTask.description" [(ngModel)]="newTask.description" />
+      
+
+      <input type="submit" value="Create Task" />
+
+</form>
+
+<div class="container">
+  <h1>All of the Tasks!!</h1>
+
+  <button (click)="onButtonClickParam()">Click me!</button>
+
+  <ul>
+    <li *ngFor="let task of tasks" (click)="getTaskFromService(task._id)">{{task.title}}
+      <button (click)="onButtonClickParams(task._id)">Click me!</button>
+
+    </li>
+  </ul>
+
+  <h1>Specific Task</h1>
+
+  <ul>
+      <li *ngIf="one_task">{{one_task.title}} {{one_task.description}}</li>
+  </ul>
+
+
+    
+
+</div>
+
+
+
+
+
